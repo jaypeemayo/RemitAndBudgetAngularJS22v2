@@ -1,0 +1,13 @@
+﻿
+    <h3 class="col-lg-2 col-lg-offset-5">My Recent Transactions</h3>
+    <div class="grid grid-pad col-lg-12">
+        <div *ngFor="let myTransactions of transactions" (click)="gotoDetail(hero)" class="col-1-4">
+            <div class="module hero">
+                <h4>{{myTransactions.action}}</h4>
+                <section>{{myTransactions.amount}}</section>
+                <section>{{myTransactions.description}}</section>
+                <section>{{myTransactions.month}}</section>
+            </div>
+        </div>
+    </div>
+

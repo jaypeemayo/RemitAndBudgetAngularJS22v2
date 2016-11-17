@@ -1,0 +1,1 @@
+﻿export var tokenKey: string = 'token';

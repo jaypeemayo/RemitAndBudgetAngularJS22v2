@@ -1,0 +1,46 @@
+﻿<div class="col-lg-2 col-lg-offset-5">
+    <h3>Register Transaction</h3>
+    <label>Action Type</label><br />
+    <select class="form-control" [(ngModel)] ="transaction.action">
+        <option>Remitances</option>
+        <option>Expenses</option>
+    </select><br />
+    <label>Amount:</label><br />
+    <input class="form-control" type="number" [(ngModel)] ="transaction.amount" placeholder="amount"/><br />
+    <ngb-alert *ngIf="errorAmount" type="danger" (close)="errorAmount = null">{{ successMessage }}</ngb-alert>
+    <label>Month:</label><br />
+    <input class="form-control" type="date" [(ngModel)] ="transaction.month"/><br /> 
+    <label>Description:</label><br />
+    <input class="form-control" type="text" [(ngModel)] ="transaction.description" placeholder="description"/><br />
+    <ngb-alert *ngIf="errorAmount" type="danger" (close)="errorAmount = null">{{ successMessage }}</ngb-alert>
+    <br />
+    <button class="form-control" (click)="addTransaction()">Add</button>
+
+    {{message}}
+</div>
+
+<div>
+    <h3>Register Transaction</h3>
+    <form #form ="ngForm" (submit) ="submitForm(form.value)">
+        <label>Action Type</label><br />
+        <select class="form-control" name="action" ngModel>
+            <option>Remitances</option>
+            <option>Expenses</option>
+        </select><br />
+        <label>Amount:</label><br />
+        <input class="form-control" type="number"  placeholder="amount" name="amount" ngModel/><br />
+        <ngb-alert *ngIf="errorAmount" type="danger" (close)="errorAmount = null">{{ successMessage }}</ngb-alert>
+        <label>Month:</label><br />
+        <input class="form-control" type="date"  name="date" ngModel/><br />
+        <label>Description:</label><br />
+        <input class="form-control" type="text" placeholder="description" name="description" ngModel/><br />
+        <ngb-alert *ngIf="errorAmount" type="danger" (close)="errorAmount = null">{{ successMessage }}</ngb-alert>
+        <br />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+
+

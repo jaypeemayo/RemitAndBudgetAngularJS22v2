@@ -1,0 +1,18 @@
+﻿<h1 class="jumbotron">Remit And Budget</h1>
+
+<div  class="btn-group col-lg-4 col-lg-offset-4">
+   
+    <!--<span *ngIf="!isLoggedIn">
+        <label class="btn btn-primary" routerLink="/login" routerLinkActive="active">Login</label>
+    </span>-->
+    <span *ngIf="isLoggedIn"> 
+        <label class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">Dashboard</label>
+        <label class="btn btn-primary" routerLink="/transaction" routerLinkActive="active">Transaction</label>
+        <label class="btn btn-primary" routerLink="/register-transaction" routerLinkActive="active">Register Transaction</label>
+        <label class="btn btn-primary" (click)="logOut()" routerLinkActive="active">Logout</label>
+    </span>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+

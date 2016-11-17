@@ -1,0 +1,24 @@
+﻿
+<div class="col-lg-2 col-lg-offset-5">
+    <h3>Register Transaction</h3>
+    <form #form ="ngForm" (ngSubmit) ="submitForm(form)">
+        <label>Action Type</label><br />
+        <select class="form-control" name="action" ngModel required>
+            <option >Remitances</option>
+            <option>Expenses</option>
+        </select><br />
+        <label>Amount:</label><br />
+        <input class="form-control" type="number"  placeholder="amount" name="amount" required/><br />
+        <label>Month:</label><br />
+        <input class="form-control" type="date"  name="date" ngModel required/><br />
+        <label>Description:</label><br />
+        <input class="form-control" type="text" placeholder="description" name="description" ngModel required/><br />
+        <br />
+        <button class="center-block" type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+
+
