@@ -1,0 +1,24 @@
+﻿<div class="col-lg-2 col-lg-offset-5">
+    <h3>Register Transaction</h3>
+    <label>Action Type</label><br />
+    <select class="form-control" [(ngModel)] ="transaction.action">
+        <option>Remitances</option>
+        <option>Expenses</option>
+    </select><br />
+    <label>Amount:</label><br />
+    <input class="form-control" type="number" [(ngModel)] ="transaction.amount" placeholder="amount"/><br />
+    <label>Month:</label><br />
+    <input class="form-control" type="date" [(ngModel)] ="transaction.month"/><br />
+    <label>Description:</label><br />
+    <input class="form-control" type="text" [(ngModel)] ="transaction.description" placeholder="description"/><br />
+    <br />
+    <button class="form-control" (click)="addTransaction()">Add</button>
+
+    {{message}}
+</div>
+
+
+
+
+
+
