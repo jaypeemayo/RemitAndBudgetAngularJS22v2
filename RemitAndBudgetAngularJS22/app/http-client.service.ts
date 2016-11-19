@@ -31,6 +31,14 @@ export class HttpClient {
         });
     }
 
+    put(url: string, data: any) {
+      let headers = new Headers();
+      this.createAuthorizationHeader(headers);
+      return this.http.put(url, data, {
+        headers: headers
+      });
+    }
+
     //post2(url: string, data: any) {
     //    let headers = new Headers();
     //    this.createAuthorizationHeader(headers);

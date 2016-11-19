@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { TransactionComponent } from './transaction.component';
 import { RegisterTransactionComponent } from './register-transaction.component';
 import { TransactionDetailComponent} from './transaction-detail.component';
-
+import { EditTransactionComponent} from './edit-transaction.component';
 const routes: Routes =
     [{
         path: 'login',
@@ -27,6 +27,10 @@ const routes: Routes =
     {
       path: 'transaction-detail/:id',
       component: TransactionDetailComponent
+    },
+    {
+      path: 'edit-transaction/:id',
+      component: EditTransactionComponent
     },
     {
         path: '',

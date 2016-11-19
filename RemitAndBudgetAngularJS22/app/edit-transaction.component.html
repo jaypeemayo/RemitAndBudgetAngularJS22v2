@@ -1,0 +1,24 @@
+
+<div *ngIf="editForm" class="col-lg-2 col-lg-offset-5">
+  <h3>Edit Transaction</h3>
+  <form [formGroup]="editForm"(ngSubmit)="submitForm(editForm)">
+    <label>Action Type</label><br />
+    <select class="form-control" [formControl]="editForm.controls['action']">
+      <option >Remitances</option>
+      <option>Expenses</option>
+    </select><br />
+    <div *ngIf="editForm.controls['action'].hasError('required') && editForm.controls['action'].touched" class="alert alert-danger">You must include action.</div>
+    <label>Amount:</label><br />
+    <input class="form-control" type="number" [formControl]="editForm.controls['amount']"/><br />
+    <div *ngIf="editForm.controls['amount'].hasError('required') && editForm.controls['amount'].touched" class="alert alert-danger">You must include amount.</div>
+    <label>Month:</label><br />
+    <input class="form-control" type="date" [formControl]="editForm.controls['month']"/><br />
+    <div *ngIf="editForm.controls['month'].hasError('required') && editForm.controls['month'].touched" class="alert alert-danger">You must include month.</div>
+    <label>Description:</label><br />
+    <input class="form-control" type="text" [formControl]="editForm.controls['description']"/><br />
+    <div *ngIf="editForm.controls['description'].hasError('required') && editForm.controls['description'].touched" class="alert alert-danger">You must include description.</div>
+    <br />
+    <button (click)="back()">Back</button><br>
+    <button class="center-block" [disabled]="!editForm.valid" type="submit">Submit</button>
+  </form>
+</div>

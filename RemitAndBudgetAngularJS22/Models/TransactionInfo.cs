@@ -14,9 +14,10 @@ namespace RemitAndBudgetAngularJS22.Models
         public DateTime Month { get; set; }
         public string Description { get; set; }
         public string Action { get; set; }
-        public int UserInfoId { get; set; }
-        [JsonIgnore]
-        public virtual UserInfo UserInfo { get; set; }
+        //no longer relationship
+        //public int UserInfoId { get; set; }
+        //[JsonIgnore]
+        //public virtual UserInfo UserInfo { get; set; }
         public string UserId { get; set; }
     }
 }

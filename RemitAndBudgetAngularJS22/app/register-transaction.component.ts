@@ -8,6 +8,7 @@ import { AuthenticationNotifyService } from './authentication-notify.service';
 @Component({
     moduleId: module.id,
     templateUrl: 'register-transaction.component.html',
+    //templateUrl: 'register-transaction-orig.component.html',
     selector: 'register-transaction',
     providers: [TransactionService,
                 HttpClient,
@@ -27,16 +28,21 @@ export class RegisterTransactionComponent implements OnInit {
         var isLoggedIn = sessionStorage.getItem(constants.tokenKey) != null;
         this.authenticationNotifyService.publishAuthenticationChange(isLoggedIn);
     }
-    submitForm(formValue: any)
-    {
-        console.log(formValue);
+
+    //for register-transaction
+    //template driven.
+    submitForm(formValue: any) {
+      this.transactionService.addTransaction(formValue.value);
+      this.message = `addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`;
+      console.log(`addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`);
     }
+
+    //for register-transaction-orig
     addTransaction(): void
     {
-
         this.transactionService.addTransaction(this.transaction); //issue, does not invoke the web api.
         this.message = `addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`;
         console.log(`addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`);
     }
- 
+
 }

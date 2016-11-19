@@ -58,7 +58,7 @@ namespace RemitAndBudgetAngularJS22.Controllers
             {
                 return BadRequest();
             }
-
+           
             db.Entry(transactionInfo).State = EntityState.Modified;
 
             try

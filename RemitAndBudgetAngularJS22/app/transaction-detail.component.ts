@@ -1,6 +1,9 @@
 
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {TransactionService} from "./transaction.service";
+import {Transaction} from "./transaction";
+import {HttpClient} from "./http-client.service";
 /**
  * Created by jaype on 11/15/2016.
  */
@@ -10,33 +13,37 @@ import {ActivatedRoute, Params} from "@angular/router";
 @Component({
   moduleId: module.id,
   selector: 'transaction-detail',
-  templateUrl:'transaction-detail.component.html'
+  templateUrl:'transaction-detail.component.html',
+  providers:[TransactionService, HttpClient]
 })
-export class TransactionDetailComponent implements OnInit{
-  id: string;
-constructor(private route: ActivatedRoute){
+export class TransactionDetailComponent implements OnInit {
+  id: number;
+  transaction: Transaction;
+
+  constructor(private route: ActivatedRoute,
+              private transactionService: TransactionService,
+              private router: Router) {
 
 
-}
+  }
 
-ngOnInit()
-{
+  ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      this.id = +params['id'];
+      this.transactionService.getTransaction(this.id).then((response) => {
+          this.transaction = response
+        }
+      );
+    });
+  }
 
-  this.route.params.forEach((params: Params) => {
-    let id = +params['id'];
-    this.id = id.toString();
-    //this.heroService.getHero(id).then(hero => this.hero = hero);
-  });
-}
+  edit(): void {
+    this.router.navigate(['/edit-transaction/', this.id.toString()]);
 
-edit()
-{
+  }
 
-
-}
-
-
-
-
+  back(): void {
+    this.router.navigate(['/transaction']);
+  }
 
 }

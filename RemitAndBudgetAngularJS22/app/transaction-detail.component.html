@@ -1,6 +1,24 @@
-<div>
-  {{id}}
-  transaction detail
+<div *ngIf="transaction" class="col-lg-2 col-lg-offset-5">
+<h3>Transaction Detail</h3>
+<table class="table">
+  <tr>
+    <td>Transaction: </td>
+    <td>{{transaction.action}}</td>
+  </tr>
+  <tr>
+    <td>Amount: </td>
+    <td>{{transaction.amount}}</td>
+  </tr>
+  <tr>
+    <td>Description: </td>
+    <td>{{transaction.description}}</td>
+  </tr>
+  <tr>
+    <td>Date: </td>
+    <td>{{transaction.month}}</td>
+  </tr>
 
-  <button (click)="edit()">Edit</button>
+  <button (click)="back()">Back</button><br>
+  <button (click)="edit()">Edit</button><br>
+</table>
 </div>
