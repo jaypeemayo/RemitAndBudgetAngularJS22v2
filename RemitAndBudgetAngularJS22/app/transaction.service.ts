@@ -23,22 +23,29 @@ export class TransactionService {
     }).catch(this.handleError)
   }
 
-    addTransaction(transaction: Transaction): Promise<Transaction[]>
+    addTransaction(transaction: Transaction): Promise<boolean>
     {
         //var transactionInfo = { "transactionInfoId": 2018, "amount": "5", "month": "2016-11-20T16:00:00Z", "description": "12", "action": "Remitances", "userInfoId": 1 };
         return this.httpClient.post(urlPrefix + '/api/TransactionInfoes', transaction).toPromise()
-            .then(res => res.json().data)
+            .then(res => res.ok)
             .catch(this.handleError);
     }
 
-    updateTransaction(id:number, transaction: Transaction): Promise<Transaction[]>
+    updateTransaction(id:number, transaction: Transaction): Promise<boolean>
     {
         return this.httpClient.put(urlPrefix + '/api/TransactionInfoes/' + id.toString(), transaction).toPromise().
-          then(res=>res.json().data).
+          then(res=>res.ok).
           catch(this.handleError);
     }
 
 
+  deleteTransaction(id:number): Promise<boolean>
+  {
+
+    return this.httpClient.delete(urlPrefix + '/api/TransactionInfoes/' + id.toString()).toPromise().
+      then(res=>res.ok).
+      catch(this.handleError);
+  }
 
 
 

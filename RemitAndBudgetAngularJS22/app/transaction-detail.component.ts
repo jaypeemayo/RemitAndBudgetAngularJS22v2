@@ -46,4 +46,21 @@ export class TransactionDetailComponent implements OnInit {
     this.router.navigate(['/transaction']);
   }
 
+  delete(): void {
+    var response = window.confirm('Are you sure you want to delete this transaction?');
+    if(response==true)
+    {
+      this.transactionService.deleteTransaction(this.id).then((response) => {
+        if(response==true)
+        {
+          alert('Delete successful');
+          this.router.navigate(['/transaction']);
+        }
+        else
+        {
+          alert('Delete fail');
+        }
+      })
+    }
+  }
 }

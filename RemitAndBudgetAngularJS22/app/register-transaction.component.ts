@@ -4,6 +4,7 @@ import { Transaction } from './transaction';
 import { HttpClient } from './http-client.service';
 import constants = require('./constants');
 import { AuthenticationNotifyService } from './authentication-notify.service';
+import {Router} from "@angular/router";
 
 @Component({
     moduleId: module.id,
@@ -20,7 +21,8 @@ export class RegisterTransactionComponent implements OnInit {
     message: string;
 
     constructor(private transactionService: TransactionService,
-        private authenticationNotifyService: AuthenticationNotifyService) {
+        private authenticationNotifyService: AuthenticationNotifyService,
+        private router: Router) {
         this.transaction = new Transaction();
     }
 
@@ -32,17 +34,31 @@ export class RegisterTransactionComponent implements OnInit {
     //for register-transaction
     //template driven.
     submitForm(formValue: any) {
-      this.transactionService.addTransaction(formValue.value);
-      this.message = `addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`;
-      console.log(`addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`);
+      this.transactionService.addTransaction(formValue.value).then(o=>{
+        this.showAlert(o);
+      });
+
+
     }
 
     //for register-transaction-orig
     addTransaction(): void
     {
-        this.transactionService.addTransaction(this.transaction); //issue, does not invoke the web api.
-        this.message = `addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`;
-        console.log(`addTransaction + ${this.transaction.action} + ${this.transaction.amount} + ${this.transaction.month} + ${this.transaction.description}`);
+        this.transactionService.addTransaction(this.transaction).then(o=>{
+          this.showAlert(o);
+        });
+    }
+
+    showAlert(o:boolean){
+
+      if(o==true){
+        alert('add sucessful.');
+        this.router.navigate(['/transaction']);
+      }
+      else
+      {
+        alert('add unsuccessful.');
+      }
     }
 
 }

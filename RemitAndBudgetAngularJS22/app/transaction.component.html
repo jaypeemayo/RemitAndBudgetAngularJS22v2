@@ -1,6 +1,7 @@
 ﻿<div class="col-lg-12">
-    <h3 class="col-lg-2 col-lg-offset-5">Transactions</h3>
-    <table class="table">
+  <h3 class="col-lg-2 col-lg-offset-5">Transactions</h3>
+  <label  class="btn btn-primary col-lg-2 col-lg-offset-5" routerLink="/register-transaction" routerLinkActive="active">Register Transaction</label>
+  <table class="table">
         <tr>
             <th>
                 Action
@@ -31,7 +32,7 @@
                 {{transaction.month}}
             </td>
             <td>
-             <button (click) = "showDetails(transaction)">Details</button>
+             <button class="btn btn-primary" (click) = "showDetails(transaction)">Details</button>
             </td>
         </tr>
     </table>
