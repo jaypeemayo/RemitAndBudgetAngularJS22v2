@@ -1,7 +1,6 @@
-﻿<div class="col-lg-12">
-  <h3 class="col-lg-2 col-lg-offset-5">Transactions</h3>
-  <label  class="btn btn-primary col-lg-2 col-lg-offset-5" routerLink="/register-transaction" routerLinkActive="active">Register Transaction</label>
-  <table class="table">
+﻿<div class="col-lg-4 col-lg-offset-4">
+  <h3 class="col-lg-4 col-lg-offset-4">Transactions</h3>
+  <table class="table table-condensed table-hover table-striped">
         <tr>
             <th>
                 Action
@@ -29,11 +28,14 @@
                 {{transaction.description}}
             </td>
             <td>
-                {{transaction.month}}
+                {{transaction.month|date:'MM/dd/yyyy'}}
             </td>
             <td>
              <button class="btn btn-primary" (click) = "showDetails(transaction)">Details</button>
             </td>
         </tr>
     </table>
+    <button  class="btn btn-primary btn-lg col-lg-4 col-lg-offset-4" routerLink="/register-transaction" routerLinkActive="active">
+      <span class="glyphicon glyphicon-plus"></span> Add
+    </button>
 </div>

@@ -1,6 +1,6 @@
-<div *ngIf="transaction" class="col-lg-2 col-lg-offset-5">
-<h3>Transaction Detail</h3>
-<table class="table">
+<div *ngIf="transaction" class="col-lg-4 col-lg-offset-4">
+<h3 class="col-lg-4 col-lg-offset-4 ">Transaction Detail</h3>
+<table class="table table-condensed table-hover table-striped">
   <tr>
     <td>Transaction: </td>
     <td>{{transaction.action}}</td>
@@ -15,12 +15,19 @@
   </tr>
   <tr>
     <td>Date: </td>
-    <td>{{transaction.month}}</td>
+    <td>{{transaction.month | date}}</td>
   </tr>
 
-  <button (click)="back()">Back</button><br>
-  <button (click)="edit()">Edit</button><br>
-  <button (click)="delete()">Delete</button><br>
 
 </table>
+  <div class="btn-group col-lg-6 col-lg-offset-3">
+    <button class="btn btn-primary" (click)="back()">Back</button>
+    <button class="btn btn-primary" (click)="edit()">Edit</button>
+    <button class="btn btn-primary" (click)="delete()">Delete</button>
+  </div>
 </div>
+
+
+
+
+
