@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
     moduleId: module.id,
     selector: 'my-app',
     templateUrl: 'app.component.html',
-    providers: [AuthenticationNotifyService]
+    providers: [AuthenticationNotifyService],
+    styleUrls:['app.component.css']
 })
 export class AppComponent implements OnInit {
     isLoggedIn: boolean;
@@ -29,9 +30,9 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.isLoggedIn = sessionStorage.getItem(constants.tokenKey) != null;      
+        this.isLoggedIn = sessionStorage.getItem(constants.tokenKey) != null;
     }
- 
+
     logOut(): void {
         console.log("current token is" + sessionStorage.getItem(constants.tokenKey));
         sessionStorage.removeItem(constants.tokenKey) //"token" must be put to constant

@@ -179,11 +179,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
     <Content Include="app\authentication.component.html" />
     <Content Include="app\dashboard.component.css" />
     <Content Include="app\dashboard.component.html" />
-    <Content Include="app\register-transaction.component - Copy.html" />
+    <Content Include="app\edit-transaction.component.html" />
+    <Content Include="app\register-transaction-orig.component.html" />
     <Content Include="app\register-transaction.component.html" />
     <Content Include="app\transaction-detail.component.html" />
     <Content Include="app\transaction.component.html" />
@@ -193,6 +195,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\Airstream-demo.html" />
+    <Content Include="fonts\Airstream-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
@@ -207,6 +211,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\Airstream-webfont.eot" />
+    <Content Include="fonts\Airstream-webfont.ttf" />
+    <Content Include="fonts\Airstream-webfont.woff" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -297,6 +305,7 @@
     <TypeScriptCompile Include="app\authentication-notify.service.ts" />
     <TypeScriptCompile Include="app\constants.ts" />
     <TypeScriptCompile Include="app\dashboard.component.ts" />
+    <TypeScriptCompile Include="app\edit-transaction.component.ts" />
     <TypeScriptCompile Include="app\http-client.service.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\register-transaction.component.ts" />
