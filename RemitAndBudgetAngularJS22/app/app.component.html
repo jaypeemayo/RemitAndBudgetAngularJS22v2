@@ -1,9 +1,6 @@
 ﻿<h1 class="jumbotron"> <span class="glyphicon glyphicon-piggy-bank"></span>>Remit & Budget</h1>
 
-<div *ngIf="isLoggedIn" class=" col-lg-8 col-lg-offset-2
-                                col-md-8 col-md-offset-2
-                                col-sm-8 col-sm-offset-2
-                                col-xs-8 col-xs-offset-2 text-center">
+<div *ngIf="isLoggedIn" class="text-center">
   <button class="btn btn-primary btn-lg" routerLink="/dashboard" routerLinkActive="active"><span class="glyphicon glyphicon-dashboard"></span>&nbsp;Dashboard</button>
   <button class="btn btn-primary btn-lg" routerLink="/transaction" routerLinkActive="active"><span class="glyphicon glyphicon-transfer"></span>&nbsp;Transaction</button>
   <button class="btn btn-primary btn-lg" (click)="logOut()" routerLinkActive="active"><span class="glyphicon glyphicon-off"></span>&nbsp;Log off</button>

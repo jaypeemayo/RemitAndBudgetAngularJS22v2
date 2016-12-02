@@ -41,3 +41,12 @@ export class AppComponent implements OnInit {
         this.router.navigate(['/login']);
     }
 }
+
+export class LALAA{
+
+  sayHi(): string
+  {
+    return "wowowee";
+
+  }
+}
