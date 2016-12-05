@@ -296,6 +296,7 @@
     <Folder Include="Views\Transaction\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\1st.spec.ts" />
     <TypeScriptCompile Include="app\app-routing.module.ts" />
     <TypeScriptCompile Include="app\app.component.spec.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />

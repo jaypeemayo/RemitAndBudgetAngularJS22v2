@@ -14,8 +14,6 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
     isLoggedIn: boolean;
-    subscription: Subscription;
-
 
     constructor(private authenticationNotifyService: AuthenticationNotifyService,
         private router: Router) {
@@ -40,13 +38,4 @@ export class AppComponent implements OnInit {
         this.isLoggedIn = false;
         this.router.navigate(['/login']);
     }
-}
-
-export class LALAA{
-
-  sayHi(): string
-  {
-    return "wowowee";
-
-  }
 }
