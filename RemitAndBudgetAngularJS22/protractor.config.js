@@ -32,9 +32,9 @@ exports.config = {
 
   // For angular tests
   useAllAngular2AppRoots: true,
-
   // Base URL for application server
-  baseUrl: 'http://localhost:8080',
+  // baseUrl: 'http://localhost:8080',
+  baseUrl: 'http://localhost:29004',
 
   // doesn't seem to work.
   // resultJsonOutputFile: "foo.json",
@@ -49,8 +49,6 @@ exports.config = {
     // console.log('browser.params:' + JSON.stringify(browser.params));
     jasmine.getEnv().addReporter(new Reporter( browser.params )) ;
 
-    global.sendKeys = sendKeys;
-
     // Allow changing bootstrap mode to NG1 for upgrade tests
     global.setProtractorToNg1Mode = function() {
       browser.useAllAngular2AppRoots = false;
@@ -59,22 +57,12 @@ exports.config = {
   },
 
   jasmineNodeOpts: {
-    // defaultTimeoutInterval: 60000,
+    //defaultTimeoutInterval: 100000,
     defaultTimeoutInterval: 10000,
     showTiming: true,
     print: function() {}
   }
 };
-
-// Hack - because of bug with protractor send keys
-function sendKeys(element, str) {
-  return str.split('').reduce(function (promise, char) {
-    return promise.then(function () {
-      return element.sendKeys(char);
-    });
-  }, element.getAttribute('value'));
-  // better to create a resolved promise here but ... don't know how with protractor;
-  }
 
 // Custom reporter
 function Reporter(options) {
